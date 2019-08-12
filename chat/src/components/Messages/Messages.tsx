@@ -4,7 +4,9 @@ import './Messages.scss';
 const Messages: React.FC = () => {
   return (
     <div className="messages">
-      <p>messages</p>
+      <div className="messages__content">
+        <p>messages</p>
+      </div>
     </div>
   );
 };

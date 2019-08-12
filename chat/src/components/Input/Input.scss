@@ -2,4 +2,55 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  border: 2px solid black;
+  border-radius: 0 0 5px 5px;
+  font-size: 1.4rem;
+
+  input {
+    border: none;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1.4rem;
+    border-radius: 0 0 5px 5px;
+    background: #f1f1f1;
+    outline: none;
+  }
+
+  input:focus {
+    background: #ffffff;
+  }
+
+  input:focus::-webkit-input-placeholder {
+    color:transparent;
+  }
+
+  input:focus:-moz-placeholder {
+    color:transparent;
+  }
+
+  input:focus::-moz-placeholder {
+    color:transparent;
+  }
+
+  input:focus:-ms-input-placeholder {
+    color:transparent;
+  }
+
+  button {
+    background: #000000;
+    border: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    outline: none;
+    cursor: pointer;
+    border-left: 2px solid black;
+  }
+
+  button:hover {
+    font-weight: 700;
+    background: #ffffff;
+    color: #000000;
+    border-radius: 0 0 5px 0;
+  }
 }

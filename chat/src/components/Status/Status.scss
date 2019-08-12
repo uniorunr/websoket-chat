@@ -2,4 +2,14 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  border: 2px solid black;
+  border-radius: 5px 5px 0 0;
+  font-size: 1.4rem;
+
+  .status__content {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-start;
+  }
 }

@@ -4,7 +4,8 @@ import './Input.scss';
 const Input: React.FC = () => {
   return (
     <div className="input-section">
-      <input />
+      <input placeholder="Type something..." />
+      <button type="button">send</button>
     </div>
   );
 };
