@@ -11,5 +11,21 @@
     padding: 10px 20px;
     display: flex;
     justify-content: flex-start;
+
+    p {
+      font-weight: 700;
+
+      .status__value {
+        text-transform: uppercase;
+      }
+
+      .status__value_offline {
+        color: #e03213;
+      }
+
+      .status__value_online {
+        color: green;
+      }
+    }
   }
 }

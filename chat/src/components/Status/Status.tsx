@@ -1,14 +1,29 @@
 import React from 'react';
 import './Status.scss';
+import { connect } from 'react-redux';
+import { StoreState } from '../../types';
 
-const Status: React.FC = () => {
+const Status = ({ chatStatus }: StatusProps) => {
   return (
     <div className="status">
       <div className="status__content">
-        <span>Status:</span>
+        <p>
+          Status:{' '}
+          <span className={`status__value status__value_${chatStatus}`}>
+            {chatStatus}
+          </span>
+        </p>
       </div>
     </div>
   );
 };
 
-export default Status;
+interface StatusProps {
+  chatStatus: string;
+}
+
+const mapStateToProps = (state: StoreState) => ({
+  chatStatus: state.chatStatus
+});
+
+export default connect(mapStateToProps)(Status);
