@@ -1,7 +1,7 @@
 import React from 'react';
-import Input from './components/Input/Input';
-import Status from './components/Status/Status';
-import Messages from './components/Messages/Messages';
+import Input from './Input/Input';
+import Status from './Status/Status';
+import Messages from './Messages/Messages';
 import './App.scss';
 
 const App: React.FC = () => {
