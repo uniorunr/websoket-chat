@@ -5,12 +5,7 @@ import './Messages.scss';
 import { formatDate } from './utils';
 
 class Messages extends Component {
-  private messagesEnd: React.RefObject<HTMLDivElement>;
-
-  constructor(props: any) {
-    super(props);
-    this.messagesEnd = React.createRef();
-  }
+  private messagesEnd: React.RefObject<HTMLDivElement> = React.createRef();
 
   scrollToBottom = () => {
     const anchor = this.messagesEnd.current;
