@@ -6,11 +6,31 @@
   border-left: 2px solid black;
   border-right: 2px solid black;
   font-size: 1.4rem;
+  overflow: auto;
 
   .messages__content {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     padding: 10px 20px;
-    display: flex;
     justify-content: flex-start;
+
+    .messages__author {
+      width: fit-content;
+      margin: 10px 0 0;
+      max-width: 80%;
+      font-size: 1.2rem;
+      color: #505050;
+    }
+
+    .messages__message {
+      width: fit-content;
+      max-width: 80%;
+      padding: 10px 15px;
+      margin: 5px 0;
+      background: #232323;
+      color: #ffffff;
+      border-radius: 10px;
+    }
   }
 }
