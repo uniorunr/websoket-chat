@@ -1,5 +1,6 @@
 const initialState = {
-  chatStatus: 'offline'
+  chatStatus: 'offline',
+  messages: []
 };
 
 export default initialState;
