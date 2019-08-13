@@ -20,4 +20,12 @@ export const setMessages = (messages: never[]): SetMessages => ({
   messages
 });
 
-export type ActionTypes = SetChatStatus | SetMessages;
+export interface ClearMessages {
+  type: constants.CLEAR_MESSAGES;
+}
+
+export const clearMessages = (): ClearMessages => ({
+  type: constants.CLEAR_MESSAGES
+});
+
+export type ActionTypes = SetChatStatus | SetMessages | ClearMessages;

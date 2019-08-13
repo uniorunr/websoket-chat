@@ -1,4 +1,4 @@
-import { setChatStatus, setMessages } from '../actions/actions';
+import { setChatStatus, setMessages, clearMessages } from '../actions/actions';
 import store from '../store/mainStore';
 
 class WebSocketClass {
@@ -28,11 +28,14 @@ class WebSocketClass {
   reconnect() {
     this.setStatus('offline');
     this.ws = new WebSocket(this.url);
+    store.dispatch(clearMessages());
     this.init();
   }
 
   getMessages(event: MessageEvent) {
-    const last100Messages = JSON.parse(event.data).slice(0, 100);
+    const last100Messages = JSON.parse(event.data)
+      .slice(0, 100)
+      .reverse();
     store.dispatch(setMessages(last100Messages));
   }
 }
