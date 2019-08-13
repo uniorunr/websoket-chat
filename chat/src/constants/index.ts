@@ -6,3 +6,6 @@ export type SET_MESSAGES = typeof SET_MESSAGES;
 
 export const CLEAR_MESSAGES = 'CLEAR_MESSAGES';
 export type CLEAR_MESSAGES = typeof CLEAR_MESSAGES;
+
+export const SET_WEBSOCKET = 'SET_WEBSOCKET';
+export type SET_WEBSOCKET = typeof SET_WEBSOCKET;

@@ -28,4 +28,18 @@ export const clearMessages = (): ClearMessages => ({
   type: constants.CLEAR_MESSAGES
 });
 
-export type ActionTypes = SetChatStatus | SetMessages | ClearMessages;
+export interface SetWebSocketInstance {
+  type: constants.SET_WEBSOCKET;
+  ws: WebSocket | null;
+}
+
+export const setWebSocketInstance = (ws: WebSocket): SetWebSocketInstance => ({
+  type: constants.SET_WEBSOCKET,
+  ws
+});
+
+export type ActionTypes =
+  | SetChatStatus
+  | SetMessages
+  | ClearMessages
+  | SetWebSocketInstance;

@@ -1,4 +1,9 @@
-import { setChatStatus, setMessages, clearMessages } from '../actions/actions';
+import {
+  setChatStatus,
+  setMessages,
+  clearMessages,
+  setWebSocketInstance
+} from '../actions/actions';
 import store from '../store/mainStore';
 
 class WebSocketClass {
@@ -8,6 +13,7 @@ class WebSocketClass {
   constructor(url: string) {
     this.url = url;
     this.ws = new WebSocket(this.url);
+    this.addWSInstanseToStore(this.ws);
     this.init();
   }
 
@@ -15,6 +21,10 @@ class WebSocketClass {
     this.ws.onopen = () => this.connect();
     this.ws.onmessage = event => this.getMessages(event);
     this.ws.onclose = () => this.reconnect();
+  }
+
+  addWSInstanseToStore(ws: WebSocket) {
+    store.dispatch(setWebSocketInstance(ws));
   }
 
   setStatus(status: string) {
