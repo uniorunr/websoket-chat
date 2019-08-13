@@ -1,6 +1,4 @@
 import React from 'react';
-import { StoreState } from '../types';
-import { connect } from 'react-redux';
 import Input from './Input/Input';
 import Status from './Status/Status';
 import Messages from './Messages/Messages';
@@ -19,8 +17,4 @@ const App: React.FC = () => {
   );
 };
 
-const mapStateToProps = (state: StoreState) => ({
-  chatStatus: state.chatStatus
-});
-
-export default connect(mapStateToProps)(App);
+export default App;
