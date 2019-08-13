@@ -14,23 +14,37 @@
     width: 100%;
     padding: 10px 20px;
     justify-content: flex-start;
+    overflow: auto;
 
     .messages__author {
       width: fit-content;
       margin: 10px 0 0;
-      max-width: 80%;
-      font-size: 1.2rem;
+      max-width: 85%;
+      font-size: 1.4rem;
       color: #505050;
+      overflow-wrap: break-word;
+      font-weight: 700;
+    }
+
+    .messages__date {
+      width: fit-content;
+      margin: 0 0 10px 0;
+      max-width: 85%;
+      font-size: 1rem;
+      color: #505050;
+      overflow-wrap: break-word;
+      font-style: italic;
     }
 
     .messages__message {
       width: fit-content;
-      max-width: 80%;
+      max-width: 85%;
       padding: 10px 15px;
       margin: 5px 0;
       background: #232323;
       color: #ffffff;
       border-radius: 10px;
+      overflow-wrap: break-word;
     }
   }
 }
