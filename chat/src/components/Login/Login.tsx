@@ -7,6 +7,25 @@ import './Login.scss';
 class Login extends Component<LoginProps> {
   private inputRef: React.RefObject<HTMLInputElement> = React.createRef();
 
+  componentDidMount(): void {
+    document.addEventListener('keydown', this.keyboardListener);
+  }
+
+  componentWillUnmount(): void {
+    document.removeEventListener('keydown', this.keyboardListener);
+  }
+
+  keyboardListener = (event: KeyboardEvent) => {
+    if (
+      event.code === 'Enter' &&
+      document.activeElement === this.inputRef.current &&
+      this.inputRef.current &&
+      this.inputRef.current.value
+    ) {
+      this.handleUsernameInput();
+    }
+  };
+
   handleUsernameInput = () => {
     const { setUserName, updateAuthStatus } = this.props;
     if (this.inputRef.current && this.inputRef.current.value) {
