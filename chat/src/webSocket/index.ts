@@ -38,6 +38,7 @@ class WebSocketClass {
   reconnect() {
     this.setStatus('offline');
     this.ws = new WebSocket(this.url);
+    this.addWSInstanseToStore(this.ws);
     store.dispatch(clearMessages());
     this.init();
   }
