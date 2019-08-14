@@ -5,7 +5,9 @@ import {
   SET_CHAT_STATUS,
   SET_MESSAGES,
   CLEAR_MESSAGES,
-  SET_WEBSOCKET
+  SET_WEBSOCKET,
+  SET_USERNAME,
+  UPDATE_AUTH_STATUS
 } from '../constants';
 
 const rootReducer = (state = initialState, action: ActionTypes): StoreState => {
@@ -18,6 +20,10 @@ const rootReducer = (state = initialState, action: ActionTypes): StoreState => {
       return { ...state, messages: [] };
     case SET_WEBSOCKET:
       return { ...state, webSocketInstance: action.ws };
+    case UPDATE_AUTH_STATUS:
+      return { ...state, isAuthorized: action.status };
+    case SET_USERNAME:
+      return { ...state, userName: action.name };
     default:
       return state;
   }

@@ -38,8 +38,30 @@ export const setWebSocketInstance = (ws: WebSocket): SetWebSocketInstance => ({
   ws
 });
 
+export interface UpdateAuthStatus {
+  type: constants.UPDATE_AUTH_STATUS;
+  status: boolean;
+}
+
+export const updateAuthStatus = (status: boolean): UpdateAuthStatus => ({
+  type: constants.UPDATE_AUTH_STATUS,
+  status
+});
+
+export interface SetUserName {
+  type: constants.SET_USERNAME;
+  name: string;
+}
+
+export const setUserName = (name: string): SetUserName => ({
+  type: constants.SET_USERNAME,
+  name
+});
+
 export type ActionTypes =
   | SetChatStatus
   | SetMessages
   | ClearMessages
-  | SetWebSocketInstance;
+  | SetWebSocketInstance
+  | SetUserName
+  | UpdateAuthStatus;

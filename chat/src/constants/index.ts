@@ -9,3 +9,9 @@ export type CLEAR_MESSAGES = typeof CLEAR_MESSAGES;
 
 export const SET_WEBSOCKET = 'SET_WEBSOCKET';
 export type SET_WEBSOCKET = typeof SET_WEBSOCKET;
+
+export const UPDATE_AUTH_STATUS = 'UPDATE_AUTH_STATUS';
+export type UPDATE_AUTH_STATUS = typeof UPDATE_AUTH_STATUS;
+
+export const SET_USERNAME = 'SET_USERNAME';
+export type SET_USERNAME = typeof SET_USERNAME;
