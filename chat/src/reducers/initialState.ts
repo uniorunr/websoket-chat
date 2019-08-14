@@ -5,7 +5,8 @@ const initialState: StoreState = {
   userName: localStorage.getItem('userName') || '',
   isAuthorized: !!localStorage.getItem('userName'),
   messages: [],
-  webSocketInstance: null
+  webSocketInstance: null,
+  offlineMessages: []
 };
 
 export default initialState;

@@ -7,7 +7,9 @@ import {
   CLEAR_MESSAGES,
   SET_WEBSOCKET,
   SET_USERNAME,
-  UPDATE_AUTH_STATUS
+  UPDATE_AUTH_STATUS,
+  ADD_OFFLINE_MESSAGE,
+  REMOVE_OFFLINE_MESSAGES
 } from '../constants';
 
 const rootReducer = (state = initialState, action: ActionTypes): StoreState => {
@@ -24,6 +26,16 @@ const rootReducer = (state = initialState, action: ActionTypes): StoreState => {
       return { ...state, isAuthorized: action.status };
     case SET_USERNAME:
       return { ...state, userName: action.name };
+    case ADD_OFFLINE_MESSAGE:
+      return {
+        ...state,
+        offlineMessages: [...state.offlineMessages, action.message]
+      };
+    case REMOVE_OFFLINE_MESSAGES:
+      return {
+        ...state,
+        offlineMessages: []
+      };
     default:
       return state;
   }

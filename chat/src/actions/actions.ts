@@ -58,10 +58,32 @@ export const setUserName = (name: string): SetUserName => ({
   name
 });
 
+export interface AddOfflineMessage {
+  type: constants.ADD_OFFLINE_MESSAGE;
+  message: never | { from: string; message: string };
+}
+
+export const addOfflineMessage = (
+  message: never | { from: string; message: string }
+): AddOfflineMessage => ({
+  type: constants.ADD_OFFLINE_MESSAGE,
+  message
+});
+
+export interface RemoveOfflineMessages {
+  type: constants.REMOVE_OFFLINE_MESSAGES;
+}
+
+export const removeOfflineMessages = (): RemoveOfflineMessages => ({
+  type: constants.REMOVE_OFFLINE_MESSAGES
+});
+
 export type ActionTypes =
   | SetChatStatus
   | SetMessages
   | ClearMessages
   | SetWebSocketInstance
   | SetUserName
-  | UpdateAuthStatus;
+  | UpdateAuthStatus
+  | AddOfflineMessage
+  | RemoveOfflineMessages;

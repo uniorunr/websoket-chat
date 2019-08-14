@@ -2,7 +2,8 @@ import {
   setChatStatus,
   setMessages,
   clearMessages,
-  setWebSocketInstance
+  setWebSocketInstance,
+  removeOfflineMessages
 } from '../actions/actions';
 import store from '../store/mainStore';
 
@@ -53,7 +54,26 @@ class WebSocketClass {
 
   addListeners() {
     window.addEventListener('online', () => {
-      this.setStatus('online');
+      const sendMessages = () => {
+        this.setStatus('online');
+        const messages: any = store.getState().offlineMessages;
+        messages.forEach((message: any) => {
+          this.ws.send(
+            JSON.stringify({
+              from: message.from,
+              message: message.message
+            })
+          );
+        });
+        store.dispatch(removeOfflineMessages());
+      };
+      if (this.ws && this.ws.readyState) {
+        sendMessages();
+      } else {
+        this.ws.onopen = () => {
+          sendMessages();
+        };
+      }
     });
     window.addEventListener('offline', () => {
       this.setStatus('offline');

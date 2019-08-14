@@ -4,4 +4,5 @@ export interface StoreState {
   isAuthorized: boolean;
   messages: never[];
   webSocketInstance: WebSocket | null;
+  offlineMessages: never[] | { from: string; message: string }[];
 }

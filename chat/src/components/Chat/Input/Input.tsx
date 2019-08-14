@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { StoreState } from '../../../types';
 import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
+import * as actions from '../../../actions/actions';
 import './Input.scss';
 
 class Input extends Component<InputProps> {
@@ -24,12 +26,13 @@ class Input extends Component<InputProps> {
   };
 
   sendMessage = () => {
-    const { ws, userName } = this.props;
+    const { ws, userName, chatStatus, addOfflineMessage } = this.props;
     if (
       ws &&
       ws.readyState === ws.OPEN &&
       this.inputRef.current &&
-      this.inputRef.current.value
+      this.inputRef.current.value &&
+      chatStatus === 'online'
     ) {
       ws.send(
         JSON.stringify({
@@ -37,6 +40,18 @@ class Input extends Component<InputProps> {
           message: this.inputRef.current.value
         })
       );
+      if (this.inputRef.current) {
+        this.inputRef.current.value = '';
+      }
+    } else if (
+      chatStatus === 'offline' &&
+      this.inputRef.current &&
+      this.inputRef.current.value
+    ) {
+      addOfflineMessage({
+        from: userName,
+        message: this.inputRef.current.value
+      });
       if (this.inputRef.current) {
         this.inputRef.current.value = '';
       }
@@ -58,11 +73,26 @@ class Input extends Component<InputProps> {
 interface InputProps {
   ws: WebSocket | null;
   userName: string;
+  chatStatus: string;
+  addOfflineMessage: Function;
 }
 
 const mapStateToProps = (state: StoreState) => ({
   ws: state.webSocketInstance,
-  userName: state.userName
+  userName: state.userName,
+  chatStatus: state.chatStatus
 });
 
-export default connect(mapStateToProps)(Input);
+const mapDispatchToProps = (dispatch: Dispatch) => {
+  const { addOfflineMessage } = bindActionCreators(actions, dispatch);
+  return {
+    addOfflineMessage: (message: never | { from: string; message: string }) => {
+      addOfflineMessage(message);
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Input);
