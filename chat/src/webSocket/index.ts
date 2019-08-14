@@ -15,6 +15,7 @@ class WebSocketClass {
     this.ws = new WebSocket(this.url);
     this.addWSInstanseToStore(this.ws);
     this.init();
+    this.addListeners();
   }
 
   init() {
@@ -48,6 +49,15 @@ class WebSocketClass {
       .slice(0, 100)
       .reverse();
     store.dispatch(setMessages(last100Messages));
+  }
+
+  addListeners() {
+    window.addEventListener('online', () => {
+      this.setStatus('online');
+    });
+    window.addEventListener('offline', () => {
+      this.setStatus('offline');
+    });
   }
 }
 
