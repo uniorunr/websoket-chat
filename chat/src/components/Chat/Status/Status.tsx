@@ -1,7 +1,7 @@
 import React from 'react';
 import './Status.scss';
 import { connect } from 'react-redux';
-import { StoreState } from '../../types';
+import { StoreState } from '../../../types';
 
 const Status = ({ chatStatus }: StatusProps) => {
   return (

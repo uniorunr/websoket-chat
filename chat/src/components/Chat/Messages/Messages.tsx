@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StoreState } from '../../types';
+import { StoreState } from '../../../types';
 import { connect } from 'react-redux';
 import './Messages.scss';
 import { formatDate } from './utils';
