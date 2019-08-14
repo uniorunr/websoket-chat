@@ -1,7 +1,8 @@
 import React from 'react';
-import './Status.scss';
 import { connect } from 'react-redux';
 import { StoreState } from '../../../types';
+import LogoutButton from './LogoutButton/LogoutButton';
+import './Status.scss';
 
 const Status = ({ chatStatus }: StatusProps) => {
   return (
@@ -13,6 +14,7 @@ const Status = ({ chatStatus }: StatusProps) => {
             {chatStatus}
           </span>
         </p>
+        <LogoutButton />
       </div>
     </div>
   );
