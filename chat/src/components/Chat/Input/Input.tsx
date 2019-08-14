@@ -25,11 +25,16 @@ class Input extends Component<InputProps> {
 
   sendMessage = () => {
     const { ws, userName } = this.props;
-    if (ws && ws.readyState === ws.OPEN) {
+    if (
+      ws &&
+      ws.readyState === ws.OPEN &&
+      this.inputRef.current &&
+      this.inputRef.current.value
+    ) {
       ws.send(
         JSON.stringify({
           from: userName,
-          message: this.inputRef.current ? this.inputRef.current.value : null
+          message: this.inputRef.current.value
         })
       );
       if (this.inputRef.current) {
