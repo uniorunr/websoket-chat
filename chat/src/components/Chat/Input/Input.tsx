@@ -24,11 +24,11 @@ class Input extends Component<InputProps> {
   };
 
   sendMessage = () => {
-    const { ws } = this.props;
+    const { ws, userName } = this.props;
     if (ws && ws.readyState === ws.OPEN) {
       ws.send(
         JSON.stringify({
-          from: 'yourMom',
+          from: userName,
           message: this.inputRef.current ? this.inputRef.current.value : null
         })
       );
@@ -52,10 +52,12 @@ class Input extends Component<InputProps> {
 
 interface InputProps {
   ws: WebSocket | null;
+  userName: string;
 }
 
 const mapStateToProps = (state: StoreState) => ({
-  ws: state.webSocketInstance
+  ws: state.webSocketInstance,
+  userName: state.userName
 });
 
 export default connect(mapStateToProps)(Input);
