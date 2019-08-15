@@ -56,7 +56,8 @@ class WebSocketClass {
       if (
         messages.length === 1 &&
         state.notificationsEnabled &&
-        !state.tabActive
+        !state.tabActive &&
+        Notification
       ) {
         new Notification('WebSocket Chat: New Message', {
           body: `${author}: ${message}`
