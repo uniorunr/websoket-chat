@@ -3,7 +3,8 @@ import {
   setMessages,
   clearMessages,
   setWebSocketInstance,
-  removeOfflineMessages
+  removeOfflineMessages,
+  setReconnectStatus
 } from '../actions/actions';
 import store from '../store/mainStore';
 
@@ -39,17 +40,28 @@ class WebSocketClass {
 
   reconnect() {
     this.setStatus('offline');
+    store.dispatch(setReconnectStatus(true));
     this.ws = new WebSocket(this.url);
     this.addWSInstanseToStore(this.ws);
-    store.dispatch(clearMessages());
     this.init();
   }
 
   getMessages(event: MessageEvent) {
-    const last100Messages = JSON.parse(event.data)
-      .slice(0, 100)
-      .reverse();
-    store.dispatch(setMessages(last100Messages));
+    const reconnectActive = store.getState().isReconnect;
+    const getAndSetMessages = () => {
+      const last100Messages = JSON.parse(event.data)
+        .slice(0, 100)
+        .reverse();
+      store.dispatch(setMessages(last100Messages));
+    };
+
+    if (reconnectActive) {
+      store.dispatch(clearMessages());
+      getAndSetMessages();
+      store.dispatch(setReconnectStatus(false));
+    } else {
+      getAndSetMessages();
+    }
   }
 
   addListeners() {

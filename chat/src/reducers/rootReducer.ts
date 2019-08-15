@@ -9,7 +9,8 @@ import {
   SET_USERNAME,
   UPDATE_AUTH_STATUS,
   ADD_OFFLINE_MESSAGE,
-  REMOVE_OFFLINE_MESSAGES
+  REMOVE_OFFLINE_MESSAGES,
+  SET_RECONNECT_STATUS
 } from '../constants';
 
 const rootReducer = (state = initialState, action: ActionTypes): StoreState => {
@@ -35,6 +36,11 @@ const rootReducer = (state = initialState, action: ActionTypes): StoreState => {
       return {
         ...state,
         offlineMessages: []
+      };
+    case SET_RECONNECT_STATUS:
+      return {
+        ...state,
+        isReconnect: action.status
       };
     default:
       return state;

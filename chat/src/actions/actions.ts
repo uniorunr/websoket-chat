@@ -78,6 +78,16 @@ export const removeOfflineMessages = (): RemoveOfflineMessages => ({
   type: constants.REMOVE_OFFLINE_MESSAGES
 });
 
+export interface SetReconnectStatus {
+  type: constants.SET_RECONNECT_STATUS;
+  status: boolean;
+}
+
+export const setReconnectStatus = (status: boolean): SetReconnectStatus => ({
+  type: constants.SET_RECONNECT_STATUS,
+  status
+});
+
 export type ActionTypes =
   | SetChatStatus
   | SetMessages
@@ -86,4 +96,5 @@ export type ActionTypes =
   | SetUserName
   | UpdateAuthStatus
   | AddOfflineMessage
-  | RemoveOfflineMessages;
+  | RemoveOfflineMessages
+  | SetReconnectStatus;

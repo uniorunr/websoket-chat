@@ -1,5 +1,6 @@
 export interface StoreState {
   chatStatus: string;
+  isReconnect: boolean;
   userName: string;
   isAuthorized: boolean;
   messages: never[];
