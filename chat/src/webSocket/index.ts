@@ -59,7 +59,7 @@ class WebSocketClass {
         !state.tabActive
       ) {
         new Notification('WebSocket Chat: New Message', {
-          body: `From: ${author} Message: ${message}`
+          body: `${author}: ${message}`
         });
       }
     };
@@ -68,10 +68,10 @@ class WebSocketClass {
       store.dispatch(clearMessages());
       store.dispatch(setMessages(messages));
       store.dispatch(setReconnectStatus(false));
-      showNotification(messages[0].message, messages[0].from);
+      if (messages[0]) showNotification(messages[0].message, messages[0].from);
     } else {
       store.dispatch(setMessages(messages));
-      showNotification(messages[0].message, messages[0].from);
+      if (messages[0]) showNotification(messages[0].message, messages[0].from);
     }
   }
 
