@@ -6,7 +6,7 @@
   border-radius: 0 0 5px 5px;
   font-size: 1.4rem;
 
-  input {
+  textarea {
     border: none;
     width: 100%;
     padding: 10px 20px;
@@ -14,25 +14,19 @@
     border-radius: 0 0 5px 5px;
     background: #f1f1f1;
     outline: none;
+    font-family: Roboto, "Helvetica Neue", "Apple Color Emoji", Helvetica, Arial, sans-serif;
+    resize: none;
   }
 
-  input:focus {
+  textarea:focus {
     background: #ffffff;
   }
 
-  input:focus::-webkit-input-placeholder {
+  textarea:focus::placeholder {
     color: transparent;
   }
 
-  input:focus:-moz-placeholder {
-    color: transparent;
-  }
-
-  input:focus::-moz-placeholder {
-    color: transparent;
-  }
-
-  input:focus:-ms-input-placeholder {
+  textarea:focus:-moz-placeholder {
     color: transparent;
   }
 

@@ -6,7 +6,7 @@ import * as actions from '../../../actions/actions';
 import './Input.scss';
 
 class Input extends Component<InputProps> {
-  private inputRef: React.RefObject<HTMLInputElement> = React.createRef();
+  private textareaRef: React.RefObject<HTMLTextAreaElement> = React.createRef();
 
   componentDidMount(): void {
     document.addEventListener('keydown', this.keyboardListener);
@@ -19,8 +19,9 @@ class Input extends Component<InputProps> {
   keyboardListener = (event: KeyboardEvent) => {
     if (
       event.code === 'Enter' &&
-      document.activeElement === this.inputRef.current
+      document.activeElement === this.textareaRef.current
     ) {
+      event.preventDefault();
       this.sendMessage();
     }
   };
@@ -30,30 +31,32 @@ class Input extends Component<InputProps> {
     if (
       ws &&
       ws.readyState === ws.OPEN &&
-      this.inputRef.current &&
-      this.inputRef.current.value &&
+      this.textareaRef.current &&
+      this.textareaRef.current.value &&
       chatStatus === 'online'
     ) {
       ws.send(
         JSON.stringify({
           from: userName,
-          message: this.inputRef.current.value
+          message: this.textareaRef.current.value
         })
       );
-      if (this.inputRef.current) {
-        this.inputRef.current.value = '';
+      if (this.textareaRef.current) {
+        this.textareaRef.current.value = '';
+        this.textareaRef.current.focus();
       }
     } else if (
       chatStatus === 'offline' &&
-      this.inputRef.current &&
-      this.inputRef.current.value
+      this.textareaRef.current &&
+      this.textareaRef.current.value
     ) {
       addOfflineMessage({
         from: userName,
-        message: this.inputRef.current.value
+        message: this.textareaRef.current.value
       });
-      if (this.inputRef.current) {
-        this.inputRef.current.value = '';
+      if (this.textareaRef.current) {
+        this.textareaRef.current.value = '';
+        this.textareaRef.current.focus();
       }
     }
   };
@@ -61,7 +64,7 @@ class Input extends Component<InputProps> {
   render() {
     return (
       <div className="input-section">
-        <input placeholder="Type something..." ref={this.inputRef} />
+        <textarea placeholder="Type something..." ref={this.textareaRef} />
         <button type="button" onClick={this.sendMessage}>
           send
         </button>
