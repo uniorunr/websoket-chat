@@ -1,8 +1,10 @@
+@import "../../../colors/colors";
+
 .status {
   width: 100%;
   display: flex;
   justify-content: center;
-  border: 2px solid black;
+  border: 2px solid $black-color;
   border-radius: 5px 5px 0 0;
   font-size: 1.4rem;
 
@@ -23,11 +25,11 @@
       }
 
       .status__value_offline {
-        color: #e03213;
+        color: $error-color;
       }
 
       .status__value_online {
-        color: green;
+        color: $success-color;
       }
     }
 
@@ -35,7 +37,7 @@
       margin: 5px 20px;
       font-size: 1.4rem;
       font-weight: 700;
-      color: #505050;
+      color: $black-color;
     }
   }
 }

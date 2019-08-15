@@ -1,17 +1,19 @@
+@import "../../../../colors/colors";
+
 .logout-button {
-  background: #000000;
-  color: #ffffff;
+  background: $black-color;
+  color: $white-color;
   text-transform: uppercase;
   padding: 5px 15px;
   outline: none;
   cursor: pointer;
-  border: 2px solid black;
+  border: 2px solid $black-color;
   border-radius: 5px;
 }
 
 .logout-button:hover {
   font-weight: 500;
-  background: #ffffff;
-  color: #000000;
+  background: $white-color;
+  color: $black-color;
   border-radius: 5px;
 }

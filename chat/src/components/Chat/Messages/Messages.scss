@@ -1,10 +1,12 @@
+@import "../../../colors/colors";
+
 .messages {
   flex-grow: 1;
   width: 100%;
   display: flex;
   justify-content: center;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+  border-left: 2px solid $black-color;
+  border-right: 2px solid $black-color;
   font-size: 1.4rem;
   overflow: auto;
 
@@ -21,7 +23,7 @@
       margin: 5px 0 0;
       max-width: 85%;
       font-size: 1.4rem;
-      color: #505050;
+      color: $black-color;
       overflow-wrap: break-word;
       font-weight: 700;
     }
@@ -31,7 +33,7 @@
       margin: 0 0 5px 0;
       max-width: 85%;
       font-size: 1rem;
-      color: #505050;
+      color: $black-color;
       overflow-wrap: break-word;
       font-style: italic;
     }
@@ -41,8 +43,8 @@
       max-width: 85%;
       padding: 10px 15px;
       margin: 5px 0;
-      background: #232323;
-      color: #ffffff;
+      background: $message-dark-color;
+      color: $white-color;
       border-radius: 10px;
       overflow-wrap: break-word;
     }
@@ -64,8 +66,8 @@
 
       .messages__message {
         align-self: flex-end;
-        background: #d4d4d4;
-        color: #232323;
+        background: $message-light-color;
+        color: $black-color;
       }
     }
   }

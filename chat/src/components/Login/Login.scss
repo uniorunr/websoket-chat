@@ -1,10 +1,12 @@
+@import "../../colors/colors";
+
 .login-section {
   display: flex;
   justify-content: center;
   align-items: center;
   width: fit-content;
   height: fit-content;
-  border: 2px solid #000000;
+  border: 2px solid $black-color;
   border-radius: 10px;
   margin-bottom: 50px;
 
@@ -21,7 +23,7 @@
       width: 100%;
       display: flex;
       justify-content: center;
-      border: 2px solid black;
+      border: 2px solid $black-color;
       border-radius: 5px;
       font-size: 1.4rem;
 
@@ -31,12 +33,12 @@
         padding: 10px 20px;
         font-size: 1.4rem;
         border-radius: 5px;
-        background: #f1f1f1;
+        background: $input-color;
         outline: none;
       }
 
       input:focus {
-        background: #ffffff;
+        background: $white-color;
       }
 
       input:focus::-webkit-input-placeholder {
@@ -56,20 +58,20 @@
       }
 
       button {
-        background: #000000;
+        background: $black-color;
         border: none;
-        color: #ffffff;
+        color: $white-color;
         text-transform: uppercase;
         padding: 10px 20px;
         outline: none;
         cursor: pointer;
-        border-left: 2px solid black;
+        border-left: 2px solid $black-color;
       }
 
       button:hover {
         font-weight: 700;
-        background: #ffffff;
-        color: #000000;
+        background: $white-color;
+        color: $black-color;
         border-radius: 0 5px 5px 0;
       }
     }
