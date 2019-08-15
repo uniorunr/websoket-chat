@@ -6,10 +6,29 @@ import { formatDate } from './utils';
 
 class Messages extends Component<MessagesProps> {
   private messagesEnd: React.RefObject<HTMLDivElement> = React.createRef();
+  private container: React.RefObject<HTMLDivElement> = React.createRef();
+
+  state = {
+    scrollToBottom: true
+  };
 
   scrollToBottom = () => {
-    const anchor = this.messagesEnd.current;
-    if (anchor) anchor.scrollIntoView();
+    const { scrollToBottom } = this.state;
+    if (scrollToBottom) {
+      const anchor = this.messagesEnd.current;
+      if (anchor) anchor.scrollIntoView();
+    }
+  };
+
+  handleScroll = () => {
+    if (this.container.current) {
+      const scrollOffsetBottom =
+        this.container.current.scrollHeight -
+        this.container.current.offsetHeight;
+      this.setState({
+        scrollToBottom: scrollOffsetBottom === this.container.current.scrollTop
+      });
+    }
   };
 
   componentDidMount() {
@@ -25,7 +44,11 @@ class Messages extends Component<MessagesProps> {
 
     return (
       <div className="messages">
-        <div className="messages__content">
+        <div
+          className="messages__content"
+          ref={this.container}
+          onScroll={this.handleScroll}
+        >
           {messages.map((message: MessageObject) => (
             <div
               key={message.id}
