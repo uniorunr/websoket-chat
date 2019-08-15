@@ -47,20 +47,31 @@ class WebSocketClass {
   }
 
   getMessages(event: MessageEvent) {
-    const reconnectActive = store.getState().isReconnect;
-    const getAndSetMessages = () => {
-      const last100Messages = JSON.parse(event.data)
-        .slice(0, 100)
-        .reverse();
-      store.dispatch(setMessages(last100Messages));
+    const messages = JSON.parse(event.data)
+      .slice(0, 100)
+      .reverse();
+    const state = store.getState();
+
+    const showNotification = (message: string, author: string) => {
+      if (
+        messages.length === 1 &&
+        state.notificationsEnabled &&
+        !state.tabActive
+      ) {
+        new Notification('WebSocket Chat: New Message', {
+          body: `From: ${author} Message: ${message}`
+        });
+      }
     };
 
-    if (reconnectActive) {
+    if (state.isReconnect) {
       store.dispatch(clearMessages());
-      getAndSetMessages();
+      store.dispatch(setMessages(messages));
       store.dispatch(setReconnectStatus(false));
+      showNotification(messages[0].message, messages[0].from);
     } else {
-      getAndSetMessages();
+      store.dispatch(setMessages(messages));
+      showNotification(messages[0].message, messages[0].from);
     }
   }
 

@@ -7,7 +7,9 @@ const initialState: StoreState = {
   isAuthorized: !!localStorage.getItem('userName'),
   messages: [],
   webSocketInstance: null,
-  offlineMessages: []
+  offlineMessages: [],
+  notificationsEnabled: false,
+  tabActive: true
 };
 
 export default initialState;

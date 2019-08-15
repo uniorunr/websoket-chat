@@ -6,4 +6,6 @@ export interface StoreState {
   messages: never[];
   webSocketInstance: WebSocket | null;
   offlineMessages: never[] | { from: string; message: string }[];
+  notificationsEnabled: boolean;
+  tabActive: boolean;
 }

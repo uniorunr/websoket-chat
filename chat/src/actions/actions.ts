@@ -88,6 +88,28 @@ export const setReconnectStatus = (status: boolean): SetReconnectStatus => ({
   status
 });
 
+export interface UpdateNotificationsStatus {
+  type: constants.UPDATE_NOTIFICATIONS_STATUS;
+  status: boolean;
+}
+
+export const updateNotificationsStatus = (
+  status: boolean
+): UpdateNotificationsStatus => ({
+  type: constants.UPDATE_NOTIFICATIONS_STATUS,
+  status
+});
+
+export interface UpdateTabStatus {
+  type: constants.UPDATE_TAB_STATUS;
+  status: boolean;
+}
+
+export const updateTabStatus = (status: boolean): UpdateTabStatus => ({
+  type: constants.UPDATE_TAB_STATUS,
+  status
+});
+
 export type ActionTypes =
   | SetChatStatus
   | SetMessages
@@ -97,4 +119,6 @@ export type ActionTypes =
   | UpdateAuthStatus
   | AddOfflineMessage
   | RemoveOfflineMessages
-  | SetReconnectStatus;
+  | SetReconnectStatus
+  | UpdateNotificationsStatus
+  | UpdateTabStatus;
