@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './Messages.scss';
 import { formatDate } from './utils';
 
-class Messages extends Component {
+class Messages extends Component<MessagesProps> {
   private messagesEnd: React.RefObject<HTMLDivElement> = React.createRef();
 
   scrollToBottom = () => {
@@ -21,13 +21,16 @@ class Messages extends Component {
   }
 
   render() {
-    const { messages }: any = this.props;
+    const { messages, userName } = this.props;
 
     return (
       <div className="messages">
         <div className="messages__content">
           {messages.map((message: MessageObject) => (
-            <div key={message.id}>
+            <div
+              key={message.id}
+              className={userName === message.from ? 'messages__own' : ''}
+            >
               <p className="messages__author">{message.from}</p>
               <p className="messages__message">{message.message}</p>
               <p className="messages__date">{formatDate(message.time)}</p>
@@ -40,6 +43,11 @@ class Messages extends Component {
   }
 }
 
+interface MessagesProps {
+  messages: never[];
+  userName: string;
+}
+
 interface MessageObject {
   id: string;
   message: string;
@@ -48,7 +56,8 @@ interface MessageObject {
 }
 
 const mapStateToProps = (state: StoreState) => ({
-  messages: state.messages
+  messages: state.messages,
+  userName: state.userName
 });
 
 export default connect(mapStateToProps)(Messages);

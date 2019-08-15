@@ -46,5 +46,28 @@
       border-radius: 10px;
       overflow-wrap: break-word;
     }
+
+    .messages__own {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-self: flex-end;
+
+      .messages__author {
+        align-self: flex-end;
+
+      }
+
+      .messages__date {
+        align-self: flex-end;
+      }
+
+      .messages__message {
+        align-self: flex-end;
+        background: #d4d4d4;
+        color: #232323;
+      }
+    }
   }
 }
+
