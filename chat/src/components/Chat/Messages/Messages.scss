@@ -9,6 +9,7 @@
   border-right: 2px solid $black-color;
   font-size: 1.4rem;
   overflow: auto;
+  background: $white-color;
 
   .messages__content {
     display: flex;
