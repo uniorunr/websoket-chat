@@ -6,9 +6,9 @@ import './Controls.scss';
 
 const Controls = ({ chatStatus, userName }: StatusProps) => {
   return (
-    <div className="status">
-      <div className="status__content">
-        <div className="status__wrapper">
+    <div className="controls">
+      <div className="controls__wrapper">
+        <div className="status">
           <div
             className={`status__status-mobile status__status-mobile_${chatStatus}`}
           />
