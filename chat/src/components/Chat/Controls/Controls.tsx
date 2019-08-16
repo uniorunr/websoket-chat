@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { StoreState } from '../../../types';
 import LogoutButton from './LogoutButton/LogoutButton';
-import './Status.scss';
+import './Controls.scss';
 
 const Status = ({ chatStatus, userName }: StatusProps) => {
   return (

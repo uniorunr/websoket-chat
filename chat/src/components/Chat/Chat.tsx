@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from './Input/Input';
-import Status from './Status/Status';
+import Status from './Controls/Controls';
 import Messages from './Messages/Messages';
 import './Chat.scss';
 
