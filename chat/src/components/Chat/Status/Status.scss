@@ -16,21 +16,42 @@
     justify-content: space-between;
     align-items: center;
 
-    .status__status {
-      font-weight: 700;
-      margin: 5px 0;
+    .status__wrapper {
       flex-grow: 1;
+      display: flex;
+      align-items: center;
 
-      .status__value {
-        text-transform: uppercase;
+      .status__status {
+        font-weight: 700;
+        margin: 5px 0;
+
+        .status__value {
+          text-transform: uppercase;
+        }
+
+        .status__value_offline {
+          color: $error-color;
+        }
+
+        .status__value_online {
+          color: $success-color;
+        }
       }
 
-      .status__value_offline {
-        color: $error-color;
+      .status__status-mobile_online {
+        display: none;
+        background: $success-color;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
       }
 
-      .status__value_online {
-        color: $success-color;
+      .status__status-mobile_offline {
+        display: none;
+        background: $error-color;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
       }
     }
 
@@ -42,3 +63,20 @@
     }
   }
 }
+
+@media only screen and (max-width : 549px) {
+  .status {
+    .status__content {
+      .status__wrapper {
+        .status__status {
+          display: none;
+        }
+
+        .status__status-mobile {
+          display: block;
+        }
+      }
+    }
+  }
+}
+

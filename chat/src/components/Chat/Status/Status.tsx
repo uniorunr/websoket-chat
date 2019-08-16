@@ -8,12 +8,17 @@ const Status = ({ chatStatus, userName }: StatusProps) => {
   return (
     <div className="status">
       <div className="status__content">
-        <p className="status__status">
-          Status:{' '}
-          <span className={`status__value status__value_${chatStatus}`}>
-            {chatStatus}
-          </span>
-        </p>
+        <div className="status__wrapper">
+          <div
+            className={`status__status-mobile status__status-mobile_${chatStatus}`}
+          />
+          <p className="status__status">
+            Status:{' '}
+            <span className={`status__value status__value_${chatStatus}`}>
+              {chatStatus}
+            </span>
+          </p>
+        </div>
         <span className="user-name">{userName}</span>
         <LogoutButton />
       </div>

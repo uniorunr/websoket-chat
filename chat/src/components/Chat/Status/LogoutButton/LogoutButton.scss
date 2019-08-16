@@ -1,19 +1,45 @@
 @import "../../../../colors/colors";
 
-.logout-button {
-  background: $black-color;
-  color: $white-color;
-  text-transform: uppercase;
-  padding: 5px 15px;
-  outline: none;
-  cursor: pointer;
-  border: 2px solid $black-color;
-  border-radius: 5px;
+.logout {
+  display: flex;
+  align-items: center;
+
+  .logout__button-mobile {
+    display: none;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .logout__button {
+    background: $black-color;
+    color: $white-color;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    outline: none;
+    cursor: pointer;
+    border: 2px solid $black-color;
+    border-radius: 5px;
+  }
+
+  .logout__button:hover {
+    font-weight: 500;
+    background: $white-color;
+    color: $black-color;
+    border-radius: 5px;
+  }
 }
 
-.logout-button:hover {
-  font-weight: 500;
-  background: $white-color;
-  color: $black-color;
-  border-radius: 5px;
+@media only screen and (max-width : 549px) {
+  .logout {
+    .logout__button-mobile {
+      display: flex;
+    }
+
+    .logout__button {
+      display: none;
+    }
+  }
 }
+
