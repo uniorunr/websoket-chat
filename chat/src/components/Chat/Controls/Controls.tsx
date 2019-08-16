@@ -4,7 +4,7 @@ import { StoreState } from '../../../types';
 import LogoutButton from './LogoutButton/LogoutButton';
 import './Controls.scss';
 
-const Status = ({ chatStatus, userName }: StatusProps) => {
+const Controls = ({ chatStatus, userName }: StatusProps) => {
   return (
     <div className="status">
       <div className="status__content">
@@ -36,4 +36,4 @@ const mapStateToProps = (state: StoreState) => ({
   userName: state.userName
 });
 
-export default connect(mapStateToProps)(Status);
+export default connect(mapStateToProps)(Controls);
