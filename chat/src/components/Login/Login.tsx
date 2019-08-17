@@ -30,8 +30,13 @@ class Login extends Component<LoginProps> {
     const { setUserName, updateAuthStatus } = this.props;
     if (this.inputRef.current && this.inputRef.current.value) {
       const userName = this.inputRef.current.value;
-      setUserName(userName);
-      localStorage.setItem('userName', userName);
+      const uerNameChars = userName.split('');
+      const redactedUserName =
+        uerNameChars.length > 35
+          ? `${uerNameChars.slice(0, 35).join('')}...`
+          : uerNameChars.join('');
+      setUserName(redactedUserName);
+      localStorage.setItem('userName', redactedUserName);
       updateAuthStatus(true);
     }
   };
