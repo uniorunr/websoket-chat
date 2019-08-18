@@ -1,0 +1,45 @@
+@import "../../../../theme/colors";
+
+.theme-control {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+
+  .theme-control__button-mobile {
+    display: none;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .theme-control__button {
+    background: $black-color;
+    color: $white-color;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    outline: none;
+    cursor: pointer;
+    border: 2px solid $black-color;
+    border-radius: 5px;
+  }
+
+  .theme-control__button:hover {
+    font-weight: 500;
+    background: $white-color;
+    color: $black-color;
+    border-radius: 5px;
+  }
+}
+
+@media only screen and (max-width : 549px) {
+  .theme-control {
+    .theme-control__button-mobile {
+      display: flex;
+    }
+
+    .theme-control__button {
+      display: none;
+    }
+  }
+}

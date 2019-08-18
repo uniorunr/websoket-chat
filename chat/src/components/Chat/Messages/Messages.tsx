@@ -40,10 +40,10 @@ class Messages extends Component<MessagesProps> {
   }
 
   render() {
-    const { messages, userName } = this.props;
+    const { messages, userName, activeBackgroundId } = this.props;
 
     return (
-      <div className="messages">
+      <div className={`messages background_${activeBackgroundId}`}>
         <div
           className="messages__content"
           ref={this.container}
@@ -69,6 +69,7 @@ class Messages extends Component<MessagesProps> {
 interface MessagesProps {
   messages: never[];
   userName: string;
+  activeBackgroundId: string;
 }
 
 interface MessageObject {
@@ -80,7 +81,8 @@ interface MessageObject {
 
 const mapStateToProps = (state: StoreState) => ({
   messages: state.messages,
-  userName: state.userName
+  userName: state.userName,
+  activeBackgroundId: state.settings.activeBackgroundId
 });
 
 export default connect(mapStateToProps)(Messages);

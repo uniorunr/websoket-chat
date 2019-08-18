@@ -110,6 +110,28 @@ export const updateTabStatus = (status: boolean): UpdateTabStatus => ({
   status
 });
 
+export interface ShowSettingsModalWindow {
+  type: constants.SHOW_SETTINGS_MODAL_WINDOW;
+  status: boolean;
+}
+
+export const showSettingsModalWindow = (
+  status: boolean
+): ShowSettingsModalWindow => ({
+  type: constants.SHOW_SETTINGS_MODAL_WINDOW,
+  status
+});
+
+export interface UpdateBackgroundId {
+  type: constants.UPDATE_BACKGROUND_ID;
+  id: string;
+}
+
+export const updateBackgroundId = (id: string): UpdateBackgroundId => ({
+  type: constants.UPDATE_BACKGROUND_ID,
+  id
+});
+
 export type ActionTypes =
   | SetChatStatus
   | SetMessages
@@ -121,4 +143,6 @@ export type ActionTypes =
   | RemoveOfflineMessages
   | SetReconnectStatus
   | UpdateNotificationsStatus
-  | UpdateTabStatus;
+  | UpdateTabStatus
+  | ShowSettingsModalWindow
+  | UpdateBackgroundId;

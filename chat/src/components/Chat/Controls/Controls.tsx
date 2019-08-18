@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { StoreState } from '../../../types';
 import LogoutButton from './LogoutButton/LogoutButton';
+import ThemeControl from './ThemeContrrol/ThemeControl';
 import './Controls.scss';
 
 const Controls = ({ chatStatus, userName }: StatusProps) => {
@@ -19,6 +20,7 @@ const Controls = ({ chatStatus, userName }: StatusProps) => {
             </span>
           </p>
         </div>
+        <ThemeControl />
         <span className="user-name">{userName}</span>
         <LogoutButton />
       </div>

@@ -9,7 +9,11 @@ const initialState: StoreState = {
   webSocketInstance: null,
   offlineMessages: [],
   notificationsEnabled: false,
-  tabActive: true
+  tabActive: true,
+  settings: {
+    showModalWindow: false,
+    activeBackgroundId: localStorage.getItem('chatBackground') || ''
+  }
 };
 
 export default initialState;

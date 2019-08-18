@@ -17,7 +17,7 @@
     align-items: center;
 
     .status {
-      flex-grow: 1;
+      flex-grow: 2;
       display: flex;
       align-items: center;
 
@@ -56,19 +56,21 @@
     }
 
     .user-name {
+      max-width: 150px;
       margin: 5px 20px;
       font-size: 1.4rem;
       font-weight: 700;
       color: $black-color;
       text-align: right;
+      overflow-wrap: break-word;
     }
   }
 }
 
 @media only screen and (max-width : 549px) {
-  .status {
-    .status__content {
-      .status__wrapper {
+  .controls {
+    .controls__wrapper {
+      .status {
         .status__status {
           display: none;
         }

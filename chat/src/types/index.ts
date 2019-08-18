@@ -8,4 +8,8 @@ export interface StoreState {
   offlineMessages: never[] | { from: string; message: string }[];
   notificationsEnabled: boolean;
   tabActive: boolean;
+  settings: {
+    showModalWindow: boolean;
+    activeBackgroundId: string;
+  };
 }

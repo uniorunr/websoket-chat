@@ -30,6 +30,16 @@ const rootReducer = (state = initialState, action: ActionTypes): StoreState => {
       return { ...state, notificationsEnabled: action.status };
     case constants.UPDATE_TAB_STATUS:
       return { ...state, tabActive: action.status };
+    case constants.SHOW_SETTINGS_MODAL_WINDOW:
+      return {
+        ...state,
+        settings: { ...state.settings, showModalWindow: action.status }
+      };
+    case constants.UPDATE_BACKGROUND_ID:
+      return {
+        ...state,
+        settings: { ...state.settings, activeBackgroundId: action.id }
+      };
     default:
       return state;
   }
