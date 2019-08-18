@@ -76,8 +76,16 @@ $width_picker: 200px;
     background: $input-color;
     border: none;
     text-transform: uppercase;
-    padding: 10px 15px;
+    padding: 0 20px 0 0;
     outline: none;
     cursor: pointer;
+  }
+}
+
+@media only screen and (max-width : 549px) {
+  .input-section {
+    .emoji-picker-icon {
+      padding: 0 10px 0 0;
+    }
   }
 }
