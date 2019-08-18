@@ -1,7 +1,5 @@
 @import "../../../theme/colors";
-
 $width_picker: 200px;
-@import '../../../../node_modules/emoji-picker-react/dist/universal/style.scss';
 
 .input-section {
   position: relative;
@@ -60,6 +58,7 @@ $width_picker: 200px;
 
     .emoji-picker {
       position: absolute;
+      width: $width_picker;
       bottom: 55px;
       right: 40px;
 
