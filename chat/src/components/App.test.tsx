@@ -1,9 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
+import { Provider } from 'react-redux';
+import store from '../store/mainStore';
 import App from './App';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+declare global {
+  interface Window {
+    Notification: any;
+  }
+}
+
+window.Notification = window.Notification || {};
+
+it('App component renders correctly', () => {
+  const app = shallow(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+  expect(app).toMatchSnapshot();
 });

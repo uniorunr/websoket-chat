@@ -2,8 +2,8 @@ import store from '../store/mainStore';
 import { updateNotificationsStatus, updateTabStatus } from '../actions/actions';
 
 const initNotifications = () => {
-  if (Notification) {
-    Notification.requestPermission().then(result => {
+  if (window.Notification) {
+    window.Notification.requestPermission().then((result: string) => {
       if (result === 'granted') {
         store.dispatch(updateNotificationsStatus(true));
 
