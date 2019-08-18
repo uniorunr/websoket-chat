@@ -80,8 +80,9 @@ class WebSocketClass {
     window.addEventListener('online', () => {
       const sendMessages = () => {
         this.setStatus('online');
-        const messages: any = store.getState().offlineMessages;
-        messages.forEach((message: any) => {
+        const messages: { from: string; message: string }[] = store.getState()
+          .offlineMessages;
+        messages.forEach((message: { from: string; message: string }) => {
           this.ws.send(
             JSON.stringify({
               from: message.from,
