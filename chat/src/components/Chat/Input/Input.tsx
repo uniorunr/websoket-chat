@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
+import EmojiPicker from 'emoji-picker-react';
+import OutsideClickHandler from 'react-outside-click-handler';
 import { StoreState } from '../../../types';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import * as actions from '../../../actions/actions';
+import { sendMessage, insertAtCursor } from './utils';
+import EmojiIcon from '../../../assets/icons/emoji.png';
 import './Input.scss';
 
 class Input extends Component<InputProps> {
   private textareaRef: React.RefObject<HTMLTextAreaElement> = React.createRef();
+
+  state = {
+    emojiPicker: false
+  };
 
   componentDidMount(): void {
     document.addEventListener('keydown', this.keyboardListener);
@@ -26,46 +34,62 @@ class Input extends Component<InputProps> {
     }
   };
 
-  sendMessage = () => {
-    const { ws, userName, chatStatus, addOfflineMessage } = this.props;
-    if (
-      ws &&
-      ws.readyState === ws.OPEN &&
-      this.textareaRef.current &&
-      this.textareaRef.current.value &&
-      chatStatus === 'online'
-    ) {
-      ws.send(
-        JSON.stringify({
-          from: userName,
-          message: this.textareaRef.current.value
-        })
+  handleEmojiClick = (code: string) => {
+    this.setState({
+      pickedEmoji: code
+    });
+    if (this.textareaRef.current) {
+      insertAtCursor(
+        this.textareaRef.current,
+        String.fromCodePoint(parseInt(code, 16))
       );
-      if (this.textareaRef.current) {
-        this.textareaRef.current.value = '';
-        this.textareaRef.current.focus();
-      }
-    } else if (
-      chatStatus === 'offline' &&
-      this.textareaRef.current &&
-      this.textareaRef.current.value
-    ) {
-      addOfflineMessage({
-        from: userName,
-        message: this.textareaRef.current.value
-      });
-      if (this.textareaRef.current) {
-        this.textareaRef.current.value = '';
-        this.textareaRef.current.focus();
-      }
     }
   };
 
+  sendMessage = () => {
+    const { ws, userName, chatStatus, addOfflineMessage } = this.props;
+    sendMessage(
+      ws,
+      userName,
+      chatStatus,
+      addOfflineMessage,
+      this.textareaRef.current
+    );
+  };
+
+  toggleEmojiPicker = () => {
+    this.setState((prevState: { emojiPicker: boolean }) => ({
+      emojiPicker: !prevState.emojiPicker
+    }));
+  };
+
+  clickOutsidePicker = () => {
+    const { emojiPicker } = this.state;
+    if (emojiPicker) this.toggleEmojiPicker();
+  };
+
   render() {
+    const { emojiPicker } = this.state;
+
     return (
       <div className="input-section">
         <textarea placeholder="Type something..." ref={this.textareaRef} />
-        <button type="button" onClick={this.sendMessage}>
+        <div className={`picker-wrapper ${emojiPicker ? 'visible' : ''}`}>
+          <OutsideClickHandler onOutsideClick={this.clickOutsidePicker}>
+            <EmojiPicker
+              disableDiversityPicker
+              onEmojiClick={this.handleEmojiClick}
+            />
+          </OutsideClickHandler>
+        </div>
+        <button
+          type="button"
+          className="emoji-picker-icon"
+          onClick={this.toggleEmojiPicker}
+        >
+          <img src={EmojiIcon} alt="Emoji icon" width={25} />
+        </button>
+        <button type="button" className="submit" onClick={this.sendMessage}>
           send
         </button>
       </div>
