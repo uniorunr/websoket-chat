@@ -1,3 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App component renders correctly 1`] = `ShallowWrapper {}`;
+exports[`App component renders correctly 1`] = `
+<section
+  className="login-section"
+>
+  <div
+    className="login-section__content"
+  >
+    <h3>
+      Please tell us your name, buddy!
+    </h3>
+    <div
+      className="input-section"
+    >
+      <input
+        placeholder="Your name..."
+      />
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        submit
+      </button>
+    </div>
+  </div>
+</section>
+`;

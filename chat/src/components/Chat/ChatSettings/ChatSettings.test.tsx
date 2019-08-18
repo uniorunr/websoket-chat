@@ -1,14 +1,16 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import store from '../../../store/mainStore';
 import ChatSettings from './ChatSettings';
 
 it('ChatSettings component renders correctly', () => {
-  const app = shallow(
+  const tree = renderer
+    .create(
       <Provider store={store}>
         <ChatSettings />
       </Provider>
-  );
-  expect(app).toMatchSnapshot();
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });

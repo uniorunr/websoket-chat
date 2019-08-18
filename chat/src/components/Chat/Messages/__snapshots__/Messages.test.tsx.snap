@@ -1,3 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Messages component renders correctly 1`] = `ShallowWrapper {}`;
+exports[`Messages component renders correctly 1`] = `
+<div
+  className="messages background_"
+>
+  <div
+    className="messages__content"
+    onScroll={[Function]}
+  >
+    <div />
+  </div>
+</div>
+`;

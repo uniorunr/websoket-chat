@@ -9,6 +9,7 @@
     "@types/react-dom": "16.8.5",
     "@types/react-outside-click-handler": "^1.2.0",
     "@types/react-redux": "^7.1.1",
+    "@types/react-test-renderer": "^16.9.0",
     "@types/redux": "^3.6.0",
     "emoji-js": "^3.4.1",
     "emoji-picker-react": "^2.1.1",
@@ -18,6 +19,7 @@
     "react-outside-click-handler": "^1.2.4",
     "react-redux": "^7.1.0",
     "react-scripts": "3.0.1",
+    "react-test-renderer": "^16.9.0",
     "redux": "^4.0.4",
     "typescript": "3.5.3"
   },

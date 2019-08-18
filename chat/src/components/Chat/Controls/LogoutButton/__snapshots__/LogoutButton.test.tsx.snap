@@ -1,3 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LogoutButton component renders correctly 1`] = `ShallowWrapper {}`;
+exports[`LogoutButton component renders correctly 1`] = `
+<div
+  className="logout"
+>
+  <button
+    className="logout__button-mobile"
+    onClick={[Function]}
+    type="button"
+  >
+    <img
+      alt="Logout Icon"
+      src="logout.png"
+      width={20}
+    />
+  </button>
+  <button
+    className="logout__button"
+    onClick={[Function]}
+    type="button"
+  >
+    logout
+  </button>
+</div>
+`;

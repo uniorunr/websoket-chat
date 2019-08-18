@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import store from '../store/mainStore';
 import App from './App';
@@ -13,10 +13,12 @@ declare global {
 window.Notification = window.Notification || {};
 
 it('App component renders correctly', () => {
-  const app = shallow(
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
-  expect(app).toMatchSnapshot();
+  const tree = renderer
+    .create(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });
