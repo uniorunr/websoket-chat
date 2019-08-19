@@ -1,0 +1,85 @@
+@import "../../../theme/colors";
+
+.controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border: 2px solid $black-color;
+  border-radius: 5px 5px 0 0;
+  font-size: 1.4rem;
+  background: $white-color;
+
+  .controls__wrapper {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .status {
+      flex-grow: 2;
+      display: flex;
+      align-items: center;
+
+      .status__status {
+        font-weight: 700;
+        margin: 5px 0;
+
+        .status__value {
+          text-transform: uppercase;
+        }
+
+        .status__value_offline {
+          color: $error-color;
+        }
+
+        .status__value_online {
+          color: $success-color;
+        }
+      }
+
+      .status__status-mobile_online {
+        display: none;
+        background: $success-color;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+      }
+
+      .status__status-mobile_offline {
+        display: none;
+        background: $error-color;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+      }
+    }
+
+    .user-name {
+      max-width: 150px;
+      margin: 5px 20px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: $black-color;
+      text-align: right;
+      overflow-wrap: break-word;
+    }
+  }
+}
+
+@media only screen and (max-width : 549px) {
+  .controls {
+    .controls__wrapper {
+      .status {
+        .status__status {
+          display: none;
+        }
+
+        .status__status-mobile {
+          display: block;
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,110 @@
+@import "../../../theme/colors";
+
+.messages {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-left: 2px solid $black-color;
+  border-right: 2px solid $black-color;
+  font-size: 1.4rem;
+  overflow: auto;
+  background: $white-color;
+
+  .messages__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 20px;
+    justify-content: flex-start;
+    overflow: auto;
+
+    .messages__author {
+      width: fit-content;
+      margin: 5px 0 0;
+      max-width: 85%;
+      font-size: 1.4rem;
+      color: $black-color;
+      overflow-wrap: break-word;
+      font-weight: 700;
+    }
+
+    .messages__date {
+      width: fit-content;
+      margin: 0 0 5px 0;
+      max-width: 85%;
+      font-size: 1rem;
+      color: $black-color;
+      overflow-wrap: break-word;
+      font-style: italic;
+    }
+
+    .messages__message {
+      width: fit-content;
+      max-width: 85%;
+      padding: 10px 15px;
+      margin: 5px 0;
+      background: $message-dark-color;
+      color: $white-color;
+      border-radius: 10px;
+      overflow-wrap: break-word;
+    }
+
+    .messages__own {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-self: flex-end;
+
+      .messages__author {
+        align-self: flex-end;
+
+      }
+
+      .messages__date {
+        align-self: flex-end;
+      }
+
+      .messages__message {
+        align-self: flex-end;
+        background: $message-light-color;
+        color: $black-color;
+      }
+    }
+  }
+}
+
+.background_hearts {
+  background-image: url("../../../assets/background/hearts.jpg");
+  background-size: 35%;
+}
+
+.background_crosses {
+  background-image: url("../../../assets/background/crosses.jpg");
+  background-size: 45%;
+}
+
+.background_leafs {
+  background-image: url("../../../assets/background/leafs.jpg");
+  background-size: 30%;
+}
+
+.background_hexals {
+  background-image: url("../../../assets/background/hexals.jpg");
+  background-size: 50%;
+}
+
+.background_triangles {
+  background-image: url("../../../assets/background/triangles.jpg");
+  background-size: 25%;
+}
+
+.background_papyrus {
+  background-image: url("../../../assets/background/papyrus.jpg");
+  background-size: 40%;
+}
+
+.background_morocco {
+  background-image: url("../../../assets/background/morocco.jpg");
+  background-size: 40%;
+}

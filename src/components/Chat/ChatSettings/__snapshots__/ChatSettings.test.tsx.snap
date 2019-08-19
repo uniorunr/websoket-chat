@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChatSettings component renders correctly 1`] = `
+<section
+  className="chat-settings"
+>
+  <div
+    className="chat-settings__background"
+  >
+    <h3>
+      Chat background
+    </h3>
+    <ul>
+      <li
+        data-id="hearts"
+        onClick={[Function]}
+      >
+        <img
+          alt="Background pattern"
+          className=""
+          src="hearts.jpg"
+          width={75}
+        />
+      </li>
+      <li
+        data-id="leafs"
+        onClick={[Function]}
+      >
+        <img
+          alt="Background pattern"
+          className=""
+          src="leafs.jpg"
+          width={75}
+        />
+      </li>
+      <li
+        data-id="hexals"
+        onClick={[Function]}
+      >
+        <img
+          alt="Background pattern"
+          className=""
+          src="hexals.jpg"
+          width={75}
+        />
+      </li>
+      <li
+        data-id="crosses"
+        onClick={[Function]}
+      >
+        <img
+          alt="Background pattern"
+          className=""
+          src="crosses.jpg"
+          width={75}
+        />
+      </li>
+      <li
+        data-id="triangles"
+        onClick={[Function]}
+      >
+        <img
+          alt="Background pattern"
+          className=""
+          src="triangles.jpg"
+          width={75}
+        />
+      </li>
+      <li
+        data-id="papyrus"
+        onClick={[Function]}
+      >
+        <img
+          alt="Background pattern"
+          className=""
+          src="papyrus.jpg"
+          width={75}
+        />
+      </li>
+      <li
+        data-id="morocco"
+        onClick={[Function]}
+      >
+        <img
+          alt="Background pattern"
+          className=""
+          src="morocco.jpg"
+          width={75}
+        />
+      </li>
+    </ul>
+  </div>
+  <button
+    className="submit"
+    onClick={[Function]}
+    type="button"
+  >
+    submit
+  </button>
+  <button
+    className="close"
+    onClick={[Function]}
+    type="button"
+  >
+    x
+  </button>
+</section>
+`;
