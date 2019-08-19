@@ -7,7 +7,7 @@ The live version of the chat - https://websocket-chat-uniorunr.netlify.com/
 
 ### Features: 
 - WebSocket protocol
-- Continue to work when the application goes offline (if the connection is lost)
+- The chat continues to work when the application goes offline (if the connection is lost)
 - Desktop Push Notifications via Notification API
 - Custom backgrounds to choose
 - Emoji picker component
