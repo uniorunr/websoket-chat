@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/13b9d913-5c40-4f7c-a4f9-bc96d5978d98/deploy-status)](https://app.netlify.com/sites/websocket-chat-uniorunr/deploys)
+
 # WebSocket Chat
 React + Redux Chat with [WS](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) - based connection.
 
